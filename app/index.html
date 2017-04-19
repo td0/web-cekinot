@@ -1,43 +1,227 @@
 <!doctype html>
-<html class="no-js" lang="">
+<html class="no-js" lang="en-us">
   <head>
     <meta charset="utf-8">
     <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>web cekinot</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <!-- Chrome manifest.json API -->
+    <link rel="manifest" href="/manifest.json">
+
+    <!-- iOS device webapp API -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+    <title>Web Cekinot</title>
+
     <!-- Place favicon.ico in the root directory -->
 
     <!-- build:css styles/vendor.css -->
     <!-- bower:css -->
+    <link rel="stylesheet" href="/bower_components/material-design-lite/material.min.css" />
+    <link rel="stylesheet" href="/bower_components/dialog-polyfill/dialog-polyfill.css" />
     <!-- endbower -->
     <!-- endbuild -->
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
     <!-- build:css styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
-    
-    <!-- build:js scripts/vendor/modernizr.js -->
-    <script src="/bower_components/modernizr/modernizr.js"></script>
-    <!-- endbuild -->
+
   </head>
   <body>
     <!--[if IE]>
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-    
-    <div class="hero-unit">
-      <h1>'Allo, 'Allo!</h1>
-      <p>You now have</p>
-      <ul>
-        <li>HTML5 Boilerplate</li>
-        <li>Sass</li>
-        <li>Modernizr</li>
-        <li>jQuery</li>
-      </ul>
+
+    <!-- MDL Spinner Component -->
+    <div class="mdl-spinner mdl-js-spinner is-active init-spinner"></div>
+
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="demo-menu-lower-right">
+      <li class="mdl-menu__item reset-menu">Reset</li>
+    </ul>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-tabs">
+      <header class="mdl-layout__header mdl-layout__header--waterfall mdl-layout__header--waterfall-hide-top">
+        <div class="mdl-layout__header-row">
+          <!-- Title -->
+          <span class="mdl-layout-title">Cekinot</span>
+          <div class="mdl-layout-spacer"></div>
+          <button id="demo-menu-lower-right" class="mdl-button mdl-js-button mdl-button--icon">
+            <i class="material-icons">&#xE5D4;</i>
+          </button>
+        </div>
+
+        <!-- Tabs -->
+        <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
+          <a href="#fixed-tab-1" id="scoreTab" class="mdl-layout__tab is-active">Score</a>
+          <a href="#fixed-tab-2" id="logTab" class="mdl-layout__tab">Log</a>
+        </div>
+      </header>
+      <main class="mdl-layout__content">
+        <section class="mdl-layout__tab-panel is-active" id="fixed-tab-1">
+          <div class="page-content">
+          <!-- <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+              <tbody>
+                <tr class='list-player'>
+                   <td class="mdl-data-table__cell--non-numeric player-name" id="p1">Player 1</td>
+                   <td>
+                     <span id="p1score">0</span>
+                      <span id="p1cscore"></span>
+                   </td>
+                </tr>
+                <tr class='list-player'>
+                   <td class="mdl-data-table__cell--non-numeric player-name" id="p2">Player 2</td>
+                   <td>
+                     <span id="p2score">0</span>
+                      <span id="p2cscore"></span>
+                   </td>
+                </tr>
+                <tr class='list-player'>
+                   <td class="mdl-data-table__cell--non-numeric player-name" id="p3">Player 3</td>
+                   <td>
+                     <span id="p3score">0</span>
+                      <span id="p3cscore"></span>
+                   </td>
+                </tr>
+                <tr class='list-player'>
+                   <td class="mdl-data-table__cell--non-numeric player-name" id="p4">Player 4</td>
+                   <td>
+                     <span id="p4score">0</span>
+                      <span id="p4cscore"></span>
+                   </td>
+                </tr>
+              </tbody>
+            </table> -->
+            <ul class="demo-list-control mdl-list mdl-shadow--2dp">
+              <li class="mdl-list__item list-player">
+                <span class="mdl-list__item-primary-content player-name" id="p1">Player 1</span>
+                <span class="mdl-list__item-secondary-action player-score">
+                  <span id="p1score">0</span>
+                  <span id="p1cscore"></span>
+                  <button class="mdl-button mdl-js-button mdl-button--icon" disabled>
+                    <i class="material-icons">&#xE5CC;</i>
+                  </button>
+                </span>
+              </li>
+              <li class="mdl-list__item list-player">
+                <span class="mdl-list__item-primary-content player-name" id="p2">Player 2</span>
+                <span class="mdl-list__item-secondary-action player-score">
+                  <span id="p2score">0</span>
+                  <span id="p2cscore"></span>
+                  <button class="mdl-button mdl-js-button mdl-button--icon" disabled>
+                    <i class="material-icons">&#xE5CC;</i>
+                  </button>
+                </span>
+              </li>
+              <li class="mdl-list__item list-player">
+                <span class="mdl-list__item-primary-content player-name" id="p3">Player 3</span>
+                <span class="mdl-list__item-secondary-action player-score">
+                  <span id="p3score">0</span>
+                  <span id="p3cscore"></span>
+                  <button class="mdl-button mdl-js-button mdl-button--icon" disabled>
+                    <i class="material-icons">&#xE5CC;</i>
+                  </button>
+                </span>
+              </li>
+              <li class="mdl-list__item list-player">
+                <span class="mdl-list__item-primary-content player-name" id="p4">Player 4</span>
+                <span class="mdl-list__item-secondary-action player-score">
+                  <span id="p4score">0</span>
+                  <span id="p4cscore"></span>
+                  <button class="mdl-button mdl-js-button mdl-button--icon" disabled>
+                    <i class="material-icons">&#xE5CC;</i>
+                  </button>
+                </span>
+              </li>
+            </ul>
+            <span class="game-turn">
+              Game <span class="game-turn-number">1</span>
+            </span>
+          </div>
+        </section>
+
+        <section class="mdl-layout__tab-panel" id="fixed-tab-2">
+          <div class="page-content">
+            <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp table-score">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th class='playerTH' id="p1th">Player 1</th>
+                  <th class='playerTH' id="p2th">Player 2</th>
+                  <th class='playerTH' id="p3th">Player 3</th>
+                  <th class='playerTH' id="p4th">Player 4</th>
+                </tr>
+              </thead>
+              <tbody id="scoreBody">
+                <tr class="current-turn">
+                  <td class="turn-number">1</td>
+                  <td> ... </td>
+                  <td> ... </td>
+                  <td> ... </td>
+                  <td> ... </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- Colored FAB button with ripple -->
+        <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-shadow--6dp" id="submitFab">
+          <i class="material-icons">&#xE876;</i>
+        </button>
+      </main>
+
+      <!-- TOAST -->
+      <div id="scoreInvalidToast" class="mdl-js-snackbar mdl-snackbar">
+        <div class="mdl-snackbar__text"></div>
+        <button class="mdl-snackbar__action" type="button"></button>
+      </div>
+
+      <!-- SUBMIT DIALOG -->
+      <dialog class="mdl-dialog submit-dialog">
+        <div class="mdl-dialog__content">
+          Submit scores?
+        </div>
+        <div class="mdl-dialog__actions">
+          <button type="button" class="mdl-button submit-score">submit</button>
+          <button type="button" class="mdl-button close cancel-score">cancel</button>
+        </div>
+      </dialog>
+
+      <!-- RESET DIALOG -->
+      <dialog class="mdl-dialog reset-dialog">
+        <div class="mdl-dialog__content">
+          Reset scores?
+        </div>
+        <div class="mdl-dialog__actions">
+          <button type="button" class="mdl-button reset-score">OK</button>
+          <button type="button" class="mdl-button close cancel-reset">cancel</button>
+        </div>
+      </dialog>
+
+      <!-- NAME CHANGE DIALOG -->
+      <dialog class="mdl-dialog player-dialog">
+        <div class="mdl-dialog__content">
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label playerScoreTextField">
+            <input class="mdl-textfield__input" type="number" id="scoreInput" value="0" onfocus="this.select()">
+            <label class="mdl-textfield__label" for="scoreInput" id="siLabel">Score</label>
+          </div>
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label playerNameTextField">
+            <input class="mdl-textfield__input" type="text" id="nameInput" val="Player" onfocus="this.select()" maxlength="25">
+            <label class="mdl-textfield__label" for="nameInput">Name</label>
+          </div>
+        </div>
+        <div class="mdl-dialog__actions">
+          <button type="button" class="mdl-button submit-player">OK</button>
+        </div>
+      </dialog>
     </div>
-    
+
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>
       (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
@@ -50,11 +234,13 @@
 
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
+    <script src="/bower_components/material-design-lite/material.min.js"></script>
     <script src="/bower_components/jquery/dist/jquery.js"></script>
-    <script src="/bower_components/modernizr/modernizr.js"></script>
+    <script src="/bower_components/dialog-polyfill/dialog-polyfill.js"></script>
+    <script src="/bower_components/pouchdb/dist/pouchdb.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
-    
+
     <!-- build:js scripts/main.js -->
     <script src="scripts/main.js"></script>
     <!-- endbuild -->

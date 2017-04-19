@@ -2,10 +2,10 @@
   "name": "web-cekinot",
   "private": true,
   "dependencies": {
-    "page": "visionmedia/page.js#^1.7.1",
     "material-design-lite": "^1.3.0",
     "jquery": "^3.2.1",
-    "modernizr": "~2.8.1"
+    "dialog-polyfill": "^0.4.7",
+    "pouchdb": "^6.1.2"
   },
   "devDependencies": {
     "chai": "^3.5.0",

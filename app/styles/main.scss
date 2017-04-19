@@ -1,6 +1,108 @@
 // bower:scss
 // endbower
 
+#submitFab.transition{
+  opacity: 1;
+  transition: visibility 0s linear 0.33s, opacity 0.33s linear;
+}
+.hidden{
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s linear 0.33s, opacity 0.33s linear;
+}
+
+.mdl-layout__header-row {
+  padding-left: 30px;
+}
+.mdl-button--fab {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+}
+
+.mdl-data-table {
+  width: 100%;
+}
+.mdl-data-table td {
+  text-align: center;
+}
+.mdl-data-table th.playerTH{
+  width: 22%;
+  padding: 0 0 10px 0;
+  text-align: center;
+}
+.mdl-data-table th.gameTurn{
+  width: 12%;
+  padding: 0 0 10px 0;
+  text-align: center;
+}
+.game-turn{
+  margin-left: 18px;
+  padding-bottom: 50px;
+  font-size: 12px;
+  color: #2979FF;
+}
+
+
+/* .mdl-chip{
+  position: relative;
+  padding-right: 0px;
+  padding-left: 12px;
+  margin-left: 12px;
+}
+.mdl-chip__contact{
+  margin-left: 8px;
+  margin-right: 0px;
+} */
+/* .player-name{
+  width:65%;
+}
+.mdl-data-table td{
+  padding-left: 10px;
+  padding-right: 10px;
+} */
+ul{
+  -webkit-margin-before: 0em;
+}
+.list-player{
+  padding-right: 0px;
+}
+.positive-score{
+  color : green;
+}
+.negative-score{
+  color : red;
+}
+.mdl-snackbar{
+  background-color: #FF6E40;
+}
+.init-spinner{
+  position: fixed;
+  z-index: 999;
+  height: 2em;
+  width: 2em;
+  overflow: show;
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+dialog {
+  position: fixed;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+dialog::backdrop { /* native */
+  background-color: rgba(0,0,0,0.7);
+}
+dialog + .backdrop { /* polyfill */
+  background-color: rgba(0,0,0,0.7);
+}
+
+
+
 .browserupgrade {
   margin: 0.2em 0;
   background: #ccc;
@@ -10,7 +112,7 @@
 
 body {
   background: #fafafa;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Roboto', Helvetica, Arial, sans-serif;
   color: #333;
 }
 

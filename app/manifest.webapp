@@ -1,14 +1,14 @@
 {
   "version": "1.0.0",
-  "name": "Web Starter Kit",
-  "launch_path": "/index.html",
-  "description": "A front-end template that helps you build fast, modern mobile web apps.",
+  "name": "Web Cekinot",
+  "launch_path": "/",
+  "description": "Cekinot Web-App",
   "icons": {
-    "128": "/images/touch/icon-128x128.png"
+    "128": "apple-touch-icon.jpg"
   },
   "developer": {
-    "name": "",
-    "url": ""
+    "name": "tadho",
+    "url": "tadho.me"
   },
   "installs_allowed_from": [
     "*"
@@ -18,8 +18,8 @@
   },
   "locales": {
     "en": {
-      "name": "Web Starter Kit",
-      "description": "A front-end template that helps you build fast, modern mobile web apps."
+      "name": "Web Cekinot",
+      "description": "Cekinot Web-App"
     }
   }
 }
