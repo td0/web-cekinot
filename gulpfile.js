@@ -6,11 +6,24 @@ const del = require('del');
 const wiredep = require('wiredep').stream;
 const runSequence = require('run-sequence');
 const pagespeed = require('psi').output;
+const manifest = require('gulp-manifest');
 
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
 
 var dev = true;
+
+gulp.task('manifest', function(){
+  gulp.src(['./dist/*','./dist/*/*'], { base: './dist' })
+    .pipe(manifest({
+      hash: true,
+      preferOnline: true,
+      network: ['*'],
+      filename: 'app.manifest',
+      exclude: 'app.manifest'
+     }))
+    .pipe(gulp.dest('dist'));
+});
 
 // Run PageSpeed Insights
 gulp.task('pagespeed', cb =>
