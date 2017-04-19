@@ -1,17 +1,16 @@
 CACHE MANIFEST
-# 2017-04-19/5:18:37
+# 2017-04-19/5:23:37
 
 CACHE:
-404.html
-apple-touch-icon.png
-favicon.ico
-index.html
-manifest.json
-manifest.webapp
-scripts/main.js
-scripts/vendor.js
-styles/main.css
-styles/vendor.css
+/apple-touch-icon.png
+/favicon.ico
+/index.html
+/manifest.json
+/manifest.webapp
+/scripts/main.js
+/scripts/vendor.js
+/styles/main.css
+/styles/vendor.css
 https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en
 https://fonts.googleapis.com/icon?family=Material+Icons
 
