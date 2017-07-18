@@ -19,6 +19,8 @@ gulp.task('manifest', function(){
       hash: true,
       preferOnline: true,
       network: ['*'],
+      cache:['https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en',
+        'https://fonts.googleapis.com/icon?family=Material+Icons'],
       filename: 'app.manifest',
       exclude: 'app.manifest'
      }))
