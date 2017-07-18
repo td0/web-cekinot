@@ -1,3 +1,7 @@
+// Variable Definition
+let $nameInput = $('#nameInput');
+let $scoreInput = $('#scoreInput');
+
 window.onload = () => {
   console.log('READY!');
   $('.init-spinner').removeClass('is-active');
@@ -143,8 +147,9 @@ submitDialog.querySelector('.submit-score')
   let cscores = [];
   let ctotals = [];
   for (let i = 0; i < 4; i++){
-    cscores[i] = ($('#p'+(i+1)+'cscore').html() === '')? 0 :
-      parseInt($('#p'+(i+1)+'cscore').html(),10);
+    let $pcscore = $('#p'+(i+1)+'cscore');
+    cscores[i] = ($pcscore.html() === '')? 0 :
+      parseInt($pcscore.html(),10);
     ctotals[i] = cscores[i] + parseInt($('#p'+(i+1)+'score').html(),10);
   }
   dbUpdateScores(cscores)
@@ -192,7 +197,7 @@ $('.cancel-reset').on('click',() => {
   });
   $('.submit-player').on('click', () => {
     validateScore(() => {
-      let nname = $('#nameInput').val().trim().replace(/\s+/g, ' ');
+      let nname = $nameInput.val().trim().replace(/\s+/g, ' ');
       if(nameTmp !== nname && nname !== ''){
         dbUpdateName(nameID, nname)
         .then(dbFetchPlayers)
@@ -202,12 +207,12 @@ $('.cancel-reset').on('click',() => {
       playerDialog.close();
     }, toastScoreInvalid);
   });
-  $('input[id=\'nameInput\']').on('keyup',(e) => {
+  $nameInput.on('keyup',(e) => {
     if(e.which===13){
       $('.submit-player').click();
     }
   });
-  $('input[id=\'scoreInput\']').on('keyup',(e) => {
+  $scoreInput.on('keyup',(e) => {
     if(e.which===13){
       $('.submit-player').click();
     }
@@ -248,28 +253,30 @@ function uiUpdateScores(d){
 }
 
 function uiUpdateCScore(id){
-  $('#'+id+'cscore').removeClass();
-  if($('#scoreInput').val()>0){
-    $('#'+id+'cscore').html(' +'+$('#scoreInput').val());
-    $('#'+id+'cscore').addClass('positive-score');
-  }else if($('#scoreInput').val()<0){
-    $('#'+id+'cscore').html(' '+$('#scoreInput').val());
-    $('#'+id+'cscore').addClass('negative-score');
+  let $cscore = $('#'+id+'cscore');
+  $cscore.removeClass();
+  if($scoreInput.val()>0){
+    $cscore.html(' +'+$scoreInput.val());
+    $cscore.addClass('positive-score');
+  }else if($scoreInput.val()<0){
+    $cscore.html(' '+$scoreInput.val());
+    $cscore.addClass('negative-score');
   }else{
-    $('#'+id+'cscore').html('');
+    $cscore.html('');
   }
 }
 function uiUpdatePlayerDialog(id){
-  let sc_input = ($('#' + id + 'cscore').html() !== '') ?
-    parseInt($('#' + id + 'cscore').html(), 10) : 0;
+  let $cscore = $('#' + id + 'cscore');
+  let sc_input = ($cscore.html() !== '') ?
+    parseInt($cscore.html(), 10) : 0;
   dbFetchName(id).then((r) => {
     $('#nameInput').val(r.name);
   });
-  $('#nameInput').parent().addClass('is-dirty');
-  $('#scoreInput').parent().removeClass('is-invalid');
-  $('#scoreInput').parent().addClass('is-dirty');
-  $('#scoreInput').val(sc_input);
-  $('#scoreInput').focus();
+  $nameInput.parent().addClass('is-dirty');
+  $scoreInput.parent().removeClass('is-invalid');
+  $scoreInput.parent().addClass('is-dirty');
+  $scoreInput.val(sc_input);
+  $scoreInput.focus();
 }
 function uiUpdateLog(ctotals){
   turn++;
@@ -321,13 +328,13 @@ $('#logTab').on('click',() => {
 
 // validate score input
 function validateScore(cb,cbe){
-  let score = $('#scoreInput').val();
+  let score = $scoreInput.val();
   if(score % 5 === 0){
     cb();
   }else{
-    $('#scoreInput').focus();
-    $('#scoreInput').parent().addClass('is-invalid');
-    $('#scoreInput').parent().addClass('is-dirty')
+    $scoreInput.focus();
+    $scoreInput.parent().addClass('is-invalid');
+    $scoreInput.parent().addClass('is-dirty');
     cbe();
   }
 }
