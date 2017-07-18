@@ -17,6 +17,7 @@ gulp.task('manifest', function(){
   gulp.src(['./dist/*','./dist/*/*'], { base: './dist' })
     .pipe(manifest({
       hash: true,
+      timestamp : true,
       preferOnline: true,
       network: ['*'],
       cache:['https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en',
@@ -192,13 +193,13 @@ gulp.task('wiredep', () => {
     .pipe(gulp.dest('app'));
 });
 
-gulp.task('build', ['lint', 'html', 'images', 'fonts', 'extras'], () => {
+gulp.task('build', ['lint', 'html', 'images', 'fonts', 'extras', 'manifest'], () => {
   return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
 });
 
 gulp.task('default', () => {
   return new Promise(resolve => {
     dev = false;
-    runSequence(['clean', 'wiredep'], 'build', resolve);
+    runSequence(['clean', 'wiredep'], 'build', 'manifest', resolve);
   });
 });
