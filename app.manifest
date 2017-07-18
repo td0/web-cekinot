@@ -1,13 +1,22 @@
 CACHE MANIFEST
-# 2017-06-19/5:55:43
+# 2017-06-19/4:29:43
 # v7
-# rev2
+# rev4
 
 CACHE:
+404.html
+apple-touch-icon.jpg
+apple-touch-icon.png
+favicon.ico
+favicon.png
+humans.txt
 index.html
+manifest.json
 manifest.webapp
-scripts/vendor.js
+robots.txt
+images/apple-touch-icon.png
 scripts/main.js
+scripts/vendor.js
 styles/main.css
 styles/vendor.css
 https://td0.github.io/web-cekinot/apple-touch-icon.png
@@ -22,4 +31,5 @@ NETWORK:
 SETTINGS:
 prefer-online
 
-# hash: 8fe058c4f52d445694cb9a33fb29aeb527c74ccb5eb82a2edee91ce72c766f34
+# hash: 01faa3d010f815c801fadddaecfa4f883fdb417574a40731c820269627b3a6d4
+
