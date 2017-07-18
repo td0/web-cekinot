@@ -181,8 +181,8 @@ $('.cancel-reset').on('click',() => {
 (() => {
   let nameID;
   let nameTmp = '';
-  $('.list-player').on('click', () => {
-    nameID = this.children[0].id;
+  $('.list-player').on('click', (event) => {
+    nameID = event.currentTarget.children[0].id;
     nameTmp = $('#'+nameID).html();
     playerDialog.showModal();
     uiUpdatePlayerDialog(nameID);
