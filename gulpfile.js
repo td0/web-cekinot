@@ -11,9 +11,9 @@ const manifest = require('gulp-manifest');
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
 
-var dev = true;
+let dev = true;
 
-gulp.task('manifest', function(){
+gulp.task('manifest', () => {
   gulp.src(['./dist/*','./dist/*/*'], { base: './dist' })
     .pipe(manifest({
       hash: true,
