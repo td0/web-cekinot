@@ -7,7 +7,7 @@ window.onload = () => {
 window.addEventListener('load', (e) => {
 
   window.applicationCache.addEventListener('updateready', (e) => {
-    if (window.applicationCache.status == window.applicationCache.UPDATEREADY) {
+    if (window.applicationCache.status === window.applicationCache.UPDATEREADY) {
       // Browser downloaded a new app cache.
       if (confirm('A new version of this site is available. Load it?')) {
         window.location.reload();
@@ -143,7 +143,7 @@ submitDialog.querySelector('.submit-score')
   let cscores = [];
   let ctotals = [];
   for (let i = 0; i < 4; i++){
-    cscores[i] = ($('#p'+(i+1)+'cscore').html() == '')? 0 :
+    cscores[i] = ($('#p'+(i+1)+'cscore').html() === '')? 0 :
       parseInt($('#p'+(i+1)+'cscore').html(),10);
     ctotals[i] = cscores[i] + parseInt($('#p'+(i+1)+'score').html(),10);
   }
@@ -198,17 +198,17 @@ $('.cancel-reset').on('click',() => {
         .then(dbFetchPlayers)
         .then(uiUpdateName);
       }
-      uiUpdateCScore(nameID)
+      uiUpdateCScore(nameID);
       playerDialog.close();
     }, toastScoreInvalid);
   });
   $('input[id=\'nameInput\']').on('keyup',(e) => {
-    if(e.which==13){
+    if(e.which===13){
       $('.submit-player').click();
     }
   });
   $('input[id=\'scoreInput\']').on('keyup',(e) => {
-    if(e.which==13){
+    if(e.which===13){
       $('.submit-player').click();
     }
   });
@@ -260,7 +260,7 @@ function uiUpdateCScore(id){
   }
 }
 function uiUpdatePlayerDialog(id){
-  let sc_input = ($('#' + id + 'cscore').html() != '') ?
+  let sc_input = ($('#' + id + 'cscore').html() !== '') ?
     parseInt($('#' + id + 'cscore').html(), 10) : 0;
   dbFetchName(id).then((r) => {
     $('#nameInput').val(r.name);
@@ -276,7 +276,7 @@ function uiUpdateLog(ctotals){
   let col = '<tr><td>' + (turn - 1) + '</td>';
   for(let i=0; i<4; i++){
     col += '<td>'+ctotals[i]+'</td>';
-    if(i==3) col += '</tr>';
+    if(i===3) col += '</tr>';
   }
   $(col).insertAfter('.current-turn');
   $('.turn-number').html(turn);
@@ -322,7 +322,7 @@ $('#logTab').on('click',() => {
 // validate score input
 function validateScore(cb,cbe){
   let score = $('#scoreInput').val();
-  if(score % 5 == 0){
+  if(score % 5 === 0){
     cb();
   }else{
     $('#scoreInput').focus();
