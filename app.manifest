@@ -1,7 +1,4 @@
 CACHE MANIFEST
-# 2017-06-19/4:29:43
-# v7
-# rev4
 
 CACHE:
 404.html
@@ -19,11 +16,6 @@ scripts/main.js
 scripts/vendor.js
 styles/main.css
 styles/vendor.css
-https://td0.github.io/web-cekinot/apple-touch-icon.png
-https://td0.github.io/web-cekinot/favicon.ico
-https://td0.github.io/web-cekinot/manifest.json
-https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en
-https://fonts.googleapis.com/icon?family=Material+Icons
 
 NETWORK:
 *
@@ -31,5 +23,4 @@ NETWORK:
 SETTINGS:
 prefer-online
 
-# hash: 01faa3d010f815c801fadddaecfa4f883fdb417574a40731c820269627b3a6d4
-
+# hash: 9864dd68934f2e1be7b359889e7d104ee72b5e6210e0d227e4488fb6fb25b589
