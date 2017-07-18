@@ -1,13 +1,13 @@
 # WEB CEKINOT
 ***
 
-YOu can now fducking save your fducking ceki score wherever/whenever you are, whether there's internet coverage or not (BE FUCKING SMART! YOU NEED TO ACCESS THIS WEB WITH 4-FDUCKING-Gs FULL BAR SIGNAL OR 500GBPS WIFI COVERAGE ONCE, BEFORE BEING ABLE TO ACCESS IT OFFLINE), on Android / iOS / Desktop browser (preferably browser which uses webkit or chromium engine such as google chrome or safari).
+YOu can now fducking save your fducking ceki score wherever/whenever you are, whether there's internet coverage or not (BE FUCKING SMART! YOU NEED TO ACCESS THIS APP WITH 4G FDUCKING FULL-BAR SIGNAL OR 500GBPS WIFI COVERAGE 'ONCE' BEFORE BEING ABLE TO ACCESS IT OFFLINE), on Android / iOS / Desktop browser (preferably browser which uses webkit or chromium engine such as google chrome or safari).
 
-IMPORTANT NOTE: if you still insist to use internet explorer to open this app with, just go 😊 FUCK YOURSELDF!!!!
+IMPORTANT NOTE: if you still insist to use internet explorer to open up this app, just go 😊 FUCK YOURSELDF!!!!
 
 
 ### Code Pre-Requisites
-1. Install Node fucking JS ( version >6 )
+1. Install Node fucking JS ( version >=6 )
 2. Install bower globally with npm
 3. Do ````npm install```` on your terminal/command prompt
 4. Do ````bower install```` on your terminal/command prompt
@@ -17,7 +17,7 @@ IMPORTANT NOTE: if you still insist to use internet explorer to open this app wi
 * .tmp/ : temporary files used by gulp to serve / God knows
 * app/ : the one that you are getting laid with
 * dist/ : don't even fucking touch it
-* bower.json : you put bower dependencies in it. Since this is a simple web app, you'd better use bower for the dependencies rather than npm to reserve the file size. Unless you really want to mess with Node
+* bower.json : you put bower dependencies in it. Since this is a simple web app, you'd better use bower for the dependencies rather than npm to reserve file size, unless you really want to mess with Node
 * package.json :  npm thingy
 
 
