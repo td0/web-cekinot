@@ -18,9 +18,9 @@
         "sizes": "192x192",
         "type": "image/png"
       }],
+  "start_url": "/?utm_source=homescreen",
   "display": "standalone",
   "orientation": "portrait",
-  "start_url": "https://td0.github.io/web-cekinot/?utm_source=homescreen",
   "background_color": "#3D4FBC",
   "theme_color": "#3D4FBC"
 }
