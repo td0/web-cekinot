@@ -1,6 +1,8 @@
-// Variable Definition
+// jQuery Variable Definition
 let $nameInput = $('#nameInput');
 let $scoreInput = $('#scoreInput');
+let $submitPlayer = $('.submit-player');
+let $submitFab = $('#submitFab');
 
 window.onload = () => {
   console.log('READY!');
@@ -195,7 +197,7 @@ $('.cancel-reset').on('click',() => {
   $('.cancel-player').on('click', () => {
     playerDialog.close();
   });
-  $('.submit-player').on('click', () => {
+  $submitPlayer.on('click', () => {
     validateScore(() => {
       let nname = $nameInput.val().trim().replace(/\s+/g, ' ');
       if(nameTmp !== nname && nname !== ''){
@@ -209,12 +211,12 @@ $('.cancel-reset').on('click',() => {
   });
   $nameInput.on('keyup',(e) => {
     if(e.which===13){
-      $('.submit-player').click();
+      $submitPlayer.click();
     }
   });
   $scoreInput.on('keyup',(e) => {
     if(e.which===13){
-      $('.submit-player').click();
+      $submitPlayer.click();
     }
   });
 })();
@@ -270,7 +272,7 @@ function uiUpdatePlayerDialog(id){
   let sc_input = ($cscore.html() !== '') ?
     parseInt($cscore.html(), 10) : 0;
   dbFetchName(id).then((r) => {
-    $('#nameInput').val(r.name);
+    $nameInput.val(r.name);
   });
   $nameInput.parent().addClass('is-dirty');
   $scoreInput.parent().removeClass('is-invalid');
@@ -313,15 +315,15 @@ function uiClearLogs(){
 // Tab listener
 $('#scoreTab').on('click',() => {
   setTimeout(() => {
-    $('#submitFab').addClass('transition');
+    $submitFab.addClass('transition');
   },500);
-  $('#submitFab').removeClass('hidden');
+  $submitFab.removeClass('hidden');
 });
 $('#logTab').on('click',() => {
   setTimeout(() => {
-    $('#submitFab').removeClass('transition');
+    $submitFab.removeClass('transition');
   },500);
-  $('#submitFab').addClass('hidden');
+  $submitFab.addClass('hidden');
 });
 
 
