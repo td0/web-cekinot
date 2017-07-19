@@ -34,7 +34,9 @@ function initDB(){
   playerDB = new PouchDB('player',{adapter:'websql', revs_limit: 10});
   scoreDB = new PouchDB('score',{adapter:'websql', revs_limit: 10});
   turn = 1;
+  // fetch db to check initialized value
   playerDB.get('p1')
+  // initialize if db empty
   .catch((err) => {
     let data = [
       {_id: 'p1', name: 'Player 1', score: 0},
@@ -45,12 +47,16 @@ function initDB(){
     return dbUpdatePlayers(data);
   })
   .then((res) => {
+      // fetch db player list
       dbFetchPlayers()
       .then((doc) => {
+        // update score ui
         uiUpdateName(doc);
         uiUpdateScores(doc);
       });
+      // fetch log
       dbFetchLogs()
+      // fill log ui
       .then(uiFillLogs);
       dbFetchTurn();
   });
@@ -77,6 +83,7 @@ function dbUpdateName(id,nname){
       return playerDB.put(doc);
     });
 }
+// update current score
 function dbUpdateScores(cscores){
   let playerdata = [];
   return dbFetchPlayers()
@@ -88,13 +95,15 @@ function dbUpdateScores(cscores){
     dbUpdatePlayers(playerdata);
   });
 }
+// fetch game turn by counting log entry
 function dbFetchTurn(){
   scoreDB.info()
   .then((x) => {
     turn = x.doc_count + 1;
   })
 }
-function dbUpdateLog(ctotals){
+// insert new log entry
+function dbInsertLog(ctotals){
   return scoreDB.put({
     _id : (turn)+'',
     p1 : ctotals[0],
@@ -103,6 +112,7 @@ function dbUpdateLog(ctotals){
     p4 : ctotals[3]
   });
 }
+// get score log/history
 function dbFetchLogs(){
   return scoreDB.allDocs({include_docs: true});
 }
@@ -157,7 +167,7 @@ submitDialog.querySelector('.submit-score')
   dbUpdateScores(cscores)
   .then(dbFetchPlayers)
   .then(uiUpdateScores);
-  dbUpdateLog(ctotals)
+  dbInsertLog(ctotals)
   .then((resp) => {
     uiUpdateLog(ctotals);
   });
