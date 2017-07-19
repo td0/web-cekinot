@@ -10,8 +10,8 @@ window.onload = () => {
 };
 
 // Check if a new cache is available on page load.
+// use appcache manifest instead of service worker to support wide variety of browser. check on http://caniuse.com
 window.addEventListener('load', (e) => {
-
   window.applicationCache.addEventListener('updateready', (e) => {
     if (window.applicationCache.status === window.applicationCache.UPDATEREADY) {
       // Browser downloaded a new app cache.
@@ -344,7 +344,6 @@ function validateScore(cb,cbe){
 function toastScoreInvalid(){
   let data = {message: 'Score must be divisible by 5'};
   let scoreInvalidToast = document.querySelector('#scoreInvalidToast');
-  // $('#scoreInvalidToast').MaterialSnackbar.showSnackbar(data);
   if(scoreInvalidToast.className.indexOf('mdl-snackbar--active') === -1)
     scoreInvalidToast.MaterialSnackbar.showSnackbar(data);
 }
