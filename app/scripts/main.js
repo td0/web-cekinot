@@ -19,7 +19,7 @@ window.addEventListener('load', (e) => {
         window.location.reload();
       }
     } else {
-      // Manifest didn't changed. Nothing new to server.
+      // Manifest didn't change. Nothing new to server.
     }
   }, false);
 
@@ -63,6 +63,7 @@ function initDB(){
 }
 
 initDB();
+
 // DB Function
 // player names & scores fetch
 function dbFetchPlayers(){
@@ -356,4 +357,12 @@ function toastScoreInvalid(){
   let scoreInvalidToast = document.querySelector('#scoreInvalidToast');
   if(scoreInvalidToast.className.indexOf('mdl-snackbar--active') === -1)
     scoreInvalidToast.MaterialSnackbar.showSnackbar(data);
+}
+
+
+// ANALYTICs
+if(navigator.connection.type!=='none'){
+  window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+  ga('create', 'UA-97242316-2', 'auto');
+  ga('send', 'pageview');
 }
