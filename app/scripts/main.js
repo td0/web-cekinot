@@ -319,7 +319,7 @@ $('#scoreTab').on('click',() => {
   },500);
   $submitFab.removeClass('hidden');
 });
-$('#logTab').on('click',() => {
+$('#historyTab').on('click',() => {
   setTimeout(() => {
     $submitFab.removeClass('transition');
   },500);
