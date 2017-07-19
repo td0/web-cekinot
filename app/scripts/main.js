@@ -345,6 +345,6 @@ function toastScoreInvalid(){
   let data = {message: 'Score must be divisible by 5'};
   let scoreInvalidToast = document.querySelector('#scoreInvalidToast');
   // $('#scoreInvalidToast').MaterialSnackbar.showSnackbar(data);
-  if(scoreInvalidToast.className.indexOf('mdl-snackbar--active') == -1)
+  if(scoreInvalidToast.className.indexOf('mdl-snackbar--active') === -1)
     scoreInvalidToast.MaterialSnackbar.showSnackbar(data);
 }
