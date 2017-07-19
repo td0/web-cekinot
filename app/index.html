@@ -8,6 +8,9 @@
     <!-- Chrome manifest.json API -->
     <link rel="manifest" href="./manifest.json">
 
+    <!--Browser Theme Color-->
+    <meta name="theme-color" content="#3F51B5">
+
     <!-- iOS device webapp API -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -59,7 +62,7 @@
         <!-- Tabs -->
         <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
           <a href="#fixed-tab-1" id="scoreTab" class="mdl-layout__tab is-active">Score</a>
-          <a href="#fixed-tab-2" id="logTab" class="mdl-layout__tab">Log</a>
+          <a href="#fixed-tab-2" id="historyTab" class="mdl-layout__tab">History</a>
         </div>
       </header>
       <main class="mdl-layout__content">
@@ -212,7 +215,7 @@
             <label class="mdl-textfield__label" for="scoreInput" id="siLabel">Score</label>
           </div>
           <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label playerNameTextField">
-            <input class="mdl-textfield__input" type="text" id="nameInput" val="Player" onfocus="this.select()" maxlength="25">
+            <input class="mdl-textfield__input" type="text" id="nameInput" value="Player" onfocus="this.select()" maxlength="25">
             <label class="mdl-textfield__label" for="nameInput">Name</label>
           </div>
         </div>
@@ -224,11 +227,11 @@
 
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
+    <script src="/bower_components/bluebird/js/browser/bluebird.js"></script>
     <script src="/bower_components/material-design-lite/material.min.js"></script>
     <script src="/bower_components/jquery/dist/jquery.js"></script>
     <script src="/bower_components/dialog-polyfill/dialog-polyfill.js"></script>
     <script src="/bower_components/pouchdb/dist/pouchdb.js"></script>
-    <script src="/bower_components/bluebird/js/browser/bluebird.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
